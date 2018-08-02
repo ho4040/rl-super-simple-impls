@@ -27,4 +27,4 @@ or just copy & paste a code to Browser console
 
 바로 노드로 실행하거나, 브라우저 콘솔(개발자도구)에 복붙 하시면 테스트 가능합니다.
 
-데이비드 실버 강의를 따라가면서 구현하고 있습니다. 
+David silver 강의에 따라 구현하고 있습니다. 
