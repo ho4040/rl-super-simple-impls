@@ -5,7 +5,7 @@ Super simple reinforcement learning implementations with JS
 Each file have no dependency at all. you can learn elements of RL from respective file.
 
 ```
-$ nodejs 01_mdp-solve-with-dp.js
+$ node 01_mdp-solve-with-dp.js
 ```
 
 # about rl 
