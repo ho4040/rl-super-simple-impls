@@ -8,6 +8,7 @@ var policy = [[-1,1], [-1,1], [-1,1], [-1,1], [-1,1]]
 var goal = 3
 var alpha =  0.01 	//learning rate
 var batch_size = 100
+state_label[goal] += '(G)'
 
 function random_choice(list) { // helper function, not important
 	let random_idx = Math.floor(Math.random() * list.length)
@@ -66,28 +67,24 @@ function collect_samples(num) {
 
 function estimate(){
 
-	// make 100 samples	
+	// create episode samples
 	let sampels = collect_samples(batch_size)
 
-	// get new values from sample
-	let new_values = values.slice()
-	
+	let new_values = values.slice() // clone old values
 
+	// get new values from sample
 	sampels.forEach(sample=>{ 
-		
 		let state = sample.start_state 
 		let g = sample.reward		
-		let v = get_value(state)
-
-		// incremental mc update
-		new_values[state] = v + alpha*(g-v) 
-
+		let v = get_value(state)		
+		new_values[state] = v + alpha*(g-v)  // incremental mc update
 	})
 	
 	// update values
 	states.forEach(state=>{
 		values[state] = new_values[state]
 	})
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -96,17 +93,17 @@ function estimate(){
 
 function pad(str){
 	while(str.length<20)
-				str = str + " "
-		return str
+		str = str + " "
+	return str
 }
 
 function print_values(phase){
-	console.log(pad(`values#${phase} │`)+values.map(v=>{return pad(`${v.toFixed(2)}`)}).join(""))
+	console.log(pad(`values#${phase}`)+values.map(v=>{return pad(`${v.toFixed(2)}`)}).join(""))
 }
 
 
 function main(){	
-	console.log(pad("States  ")+state_label.map(l=>{return pad(l)}).join(""))
+	console.log(pad("states  ")+state_label.map(l=>{return pad(l)}).join(""))
 	print_values(0)
 	for(let i=0;i<10;i++){
 		estimate()

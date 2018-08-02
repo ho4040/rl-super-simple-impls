@@ -93,11 +93,11 @@ function pad(str){
 }
 
 function print_values(phase){
-	console.log(pad(`values#${phase} │`)+values.map(v=>{return pad(`${v.toFixed(2)}`)}).join(""))
+	console.log(pad(`values#${phase}`)+values.map(v=>{return pad(`${v.toFixed(2)}`)}).join(""))
 }
 
 function print_policy(phase){
-	console.log(pad(`policy#${phase} │`)+policy.map(actions=>{
+	console.log(pad(`policy#${phase}`)+policy.map(actions=>{
 		return pad(actions.map(action=>{
 			if(action == -1) return "←"
 			else if(action == 1) return "→"
@@ -107,7 +107,7 @@ function print_policy(phase){
 }
 
 function main(){	
-	console.log(pad("States  ")+state_label.map(l=>{return pad(l)}).join(""))
+	console.log(pad("states")+state_label.map(l=>{return pad(l)}).join(""))
 	print_values(0)
 	print_policy(0)
 	for(let i=0;i<5;i++){
