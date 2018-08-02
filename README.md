@@ -7,3 +7,7 @@ Each files haven no dependency at all, just read each file to understand element
 ```
 $ nodejs mdp-dp.js
 ```
+
+# about rl 
+
+http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
