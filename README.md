@@ -1,11 +1,11 @@
-# rl-super-simple-impls
+# KISS RL
 
 Super simple reinforcement learning implementations with JS
 
-Each files haven no dependency at all. just read a file to understand elements of RL
+Each file have no dependency at all. you can learn elements of RL from respective file.
 
 ```
-$ nodejs mdp-dp.js
+$ nodejs 01_mdp-solve-with-dp.js
 ```
 
 # about rl 
