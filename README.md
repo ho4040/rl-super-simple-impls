@@ -8,7 +8,7 @@ Each file have zero dependency at all. you can learn elements of RL from respect
 $ node 01_mdp-solve-with-dp.js
 ```
 
-or just copy & paste to Browser console
+or just copy & paste a code to Browser console
 
 # about rl 
 
