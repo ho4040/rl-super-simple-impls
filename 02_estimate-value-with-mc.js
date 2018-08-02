@@ -64,7 +64,7 @@ function collect_samples(num) {
 }
 
 
-function evaluate(){
+function estimate(){
 
 	// make 100 samples	
 	let sampels = collect_samples(batch_size)
@@ -109,7 +109,7 @@ function main(){
 	console.log(pad("States  ")+state_label.map(l=>{return pad(l)}).join(""))
 	print_values(0)
 	for(let i=0;i<10;i++){
-		evaluate()
+		estimate()
 		print_values(i+1)
 	}
 }
