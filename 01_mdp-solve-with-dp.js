@@ -1,13 +1,12 @@
-console.log("Deterministic MDP solve with Dynamic Programming")
+console.log("MDP solve with Dynamic Programming")
 console.log("About DP : http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/DP.pdf")
-
-state_label = ['A', 'B', 'C', 'D', 'E']
-states = [0, 1, 2, 3, 4]
-
-values = [0, 0, 0, 0, 0]
-policy = [[-1,1], [-1,1], [-1,1], [-1,1], [-1,1]]
-discount_ratio = 0.8
-goal = 3
+console.log("Deterministic transition. no transition probability")
+var state_label = ['A', 'B', 'C', 'D', 'E']
+var states = [0, 1, 2, 3, 4]
+var values = [0, 0, 0, 0, 0]
+var policy = [[-1,1], [-1,1], [-1,1], [-1,1], [-1,1]]
+var discount_ratio = 0.8
+var goal = 3
 state_label[goal] += '(G)'
 
 function get_next_state(state, action){
@@ -88,39 +87,35 @@ function improve(){
 // build output
 ////////////////////////////////////
 function pad(str){
-	while(str.length<15)
+	while(str.length<20)
 				str = str + " "
 		return str
 }
 
 function print_values(phase){
-	console.log(pad(`\tvalues_${phase} │\t`)+values.map(v=>{return pad(`${v.toFixed(2)}`)}).join("\t"))
+	console.log(pad(`values#${phase} │`)+values.map(v=>{return pad(`${v.toFixed(2)}`)}).join(""))
 }
 
 function print_policy(phase){
-	console.log(pad(`\tpolicy_${phase} │\t`)+policy.map(actions=>{
+	console.log(pad(`policy#${phase} │`)+policy.map(actions=>{
 		return pad(actions.map(action=>{
-			if(action == -1) return "← "
-			else if(action == 1) return "→ "
+			if(action == -1) return "←"
+			else if(action == 1) return "→"
 			return ""
 		}).join(""))
-	}).join("\t"))
+	}).join(""))
 }
 
 function main(){	
-	console.log("──────────────────────────────────────────────────────────────────────────────────────────")
-	console.log(pad("\tStates\t")+state_label.map(l=>{return pad(l)}).join("\t"))
-	console.log("───────────┬──────────────────────────────────────────────────────────────────────────────")
+	console.log(pad("States  ")+state_label.map(l=>{return pad(l)}).join(""))
 	print_values(0)
 	print_policy(0)
 	for(let i=0;i<5;i++){
-		console.log("───────────┼──────────────────────────────────────────────────────────────────────────────")
 		evaluate()
 		print_values(i+1)
 		improve()
 		print_policy(i+1)
 	}
-	console.log("───────────┴──────────────────────────────────────────────────────────────────────────────")
 }
 
 
