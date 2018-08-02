@@ -2,7 +2,9 @@
 
 Super simple reinforcement learning implementations with JS
 
-Each file have zero dependency at all. you can learn elements of RL from respective file.
+Each file have no dependency at all for readability. 
+
+you can learn elements of RL from respective file.
 
 ```bash
 $ node 01_mdp-solve-with-dp.js
