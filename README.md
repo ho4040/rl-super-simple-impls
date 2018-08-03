@@ -12,7 +12,7 @@ $ node 01_mdp-solve-with-dp.js
 
 or just copy & paste a code to Browser console
 
-# about rl 
+# About RL 
 
 * youtube : https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PL7-jPKtc4r78-wCZcQn5IqyuWhBZ8fOxT
 
@@ -27,4 +27,4 @@ or just copy & paste a code to Browser console
 
 바로 노드로 실행하거나, 브라우저 콘솔(개발자도구)에 복붙 하시면 테스트 가능합니다.
 
-David silver 강의에 따라 구현하고 있습니다. 
+모두연풀립스쿨에서 David silver 강의에 따라 구현하고 있습니다. 
