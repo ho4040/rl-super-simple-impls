@@ -5,6 +5,7 @@ var state_label = ['A', 'B', 'C', 'D', 'E']
 var states = [0, 1, 2, 3, 4]
 var values = [0, 0, 0, 0, 0]
 var policy = [[-1,1], [-1,1], [-1,1], [-1,1], [-1,1]]
+
 var discount_ratio = 0.8
 var goal = 3
 state_label[goal] += '(G)'
@@ -57,7 +58,12 @@ function evaluate(){
 function improve(){
 
 	let new_policy = states.map(state=>{
-		let actions = get_actions(state)		
+
+		let actions = [-1, 1]
+		if (state == goal)
+			actions = []
+
+
 		let action_values = actions.map(action=>{
 			let reward = get_reward(state, action) // required
 			let new_state = get_next_state(state, action)			
